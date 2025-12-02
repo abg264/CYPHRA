@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyphra - Máxima Seguridad para tu Hogar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 20px 0;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #94a3b8;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .product-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 24px;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .product-image {
+            position: relative;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .device-illustration {
+            width: 280px;
+            height: 320px;
+            background: linear-gradient(135deg, #1e293b, #334155);
+            border-radius: 20px;
+            border: 3px solid #3b82f6;
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .device-detail {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .product-info h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: 800;
+            color: #3b82f6;
+            margin: 20px 0;
+        }
+
+        .price-note {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 80px 0;
+        }
+
+        .feature-card {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #f1f5f9;
+        }
+
+        .feature-card p {
+            color: #94a3b8;
+            font-size: 15px;
+        }
+
+        .specs {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 60px 40px;
+            border-radius: 24px;
+            margin: 60px 0;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .specs h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .spec-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: start;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 12px;
+        }
+
+        .spec-item::before {
+            content: "✓";
+            color: #3b82f6;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 80px;
+            border-top: 1px solid rgba(148, 163, 184, 0.1);
+            color: #64748b;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            padding: 40px;
+            border-radius: 24px;
+            max-width: 500px;
+            width: 90%;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #94a3b8;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 8px;
+            color: #e2e8f0;
+            font-size: 16px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn-secondary {
+            background: rgba(148, 163, 184, 0.2);
+            flex: 1;
+        }
+
+        .btn-primary {
+            flex: 1;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .success-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .product-showcase {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">🔐 Cyphra</div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Tu Información, Totalmente Protegida</h1>
+            <p class="subtitle">El dispositivo de seguridad más avanzado para tu hogar. Sin conexión a internet, con encriptación militar y acceso biométrico.</p>
+        </section>
+
+        <section class="product-showcase">
+            <div class="product-image">
+                <div class="device-illustration">
+                    <img src="logo_cyphra.png" alt="" width="270" height="310">
+                </div>
+            </div>
+            <div class="product-info">
+                <h2>Cyphra</h2>
+                <p style="color: #94a3b8; margin-bottom: 20px;">
+                    La única manera de mantener tus contraseñas, documentos y datos críticos completamente seguros. Sin riesgos de hackeos, sin accesos remotos, sin vulnerabilidades.
+                </p>
+                <div class="price">$2,621.99</div>
+                <p class="price-note">Envío gratuito • Garantía de 2 años</p>
+                <button class="btn" onclick="openModal()">Comprar Ahora</button>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>100% Offline</h3>
+                <p>Nunca se conecta a internet. Tus datos permanecen en tu dispositivo, sin exposición a hackers o brechas de seguridad en la nube.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <h3>Encriptación Avanzada</h3>
+                <p>Utiliza encriptación de nivel militar AES-256 bits. Incluso si alguien obtiene el dispositivo físicamente, no puede acceder a tus datos.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👆</div>
+                <h3>Acceso Biométrico</h3>
+                <p>Solo tú puedes acceder a tu información mediante huella digital o reconocimiento facial a través de nuestra app segura.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>App Local Exclusiva</h3>
+                <p>Accede a tus datos solo cuando estés físicamente cerca del dispositivo. La app se comunica localmente sin usar internet.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💾</div>
+                <h3>Gran Capacidad</h3>
+                <p>Almacena miles de contraseñas, documentos importantes, fotos privadas y cualquier información crítica que necesites proteger.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Fácil de Usar</h3>
+                <p>Configuración simple en minutos. Interfaz intuitiva que hace la seguridad accesible para todos, sin complicaciones técnicas.</p>
+            </div>
+        </section>
+
+        <section class="specs">
+            <h2>Especificaciones Técnicas</h2>
+            <div class="spec-list">
+                <div class="spec-item">
+                    <span>Encriptación AES-256 bits de grado militar</span>
+                </div>
+                <div class="spec-item">
+                    <span>Almacenamiento: 256GB de memoria segura</span>
+                </div>
+                <div class="spec-item">
+                    <span>Conectividad: Bluetooth 5.0 de corto alcance</span>
+                </div>
+                <div class="spec-item">
+                    <span>Autenticación: Biométrica multifactor</span>
+                </div>
+                <div class="spec-item">
+                    <span>Batería: Hasta 6 meses en standby</span>
+                </div>
+                <div class="spec-item">
+                    <span>Compatibilidad: iOS 14+ y Android 10+</span>
+                </div>
+                <div class="spec-item">
+                    <span>Dimensiones: 10cm x 6cm x 2cm</span>
+                </div>
+                <div class="spec-item">
+                    <span>Certificación: ISO 27001 y SOC 2</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Cyphra. Todos los derechos reservados.</p>
+            <p style="margin-top: 10px; font-size: 14px;">Máxima seguridad para tu información más valiosa</p>
+        </div>
+    </footer>
+
+    <div class="modal" id="purchaseModal">
+        <div class="modal-content">
+            <div id="formSection">
+                <h3>Completa tu Compra</h3>
+                <form id="purchaseForm">
+                    <div class="form-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Dirección de Envío</label>
+                        <input type="text" id="address" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="modal-buttons">
+                        <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Confirmar Pedido</button>
+                    </div>
+                </form>
+            </div>
+            <div class="success-message" id="successMessage">
+                <div class="success-icon">✅</div>
+                <h3>¡Pedido Confirmado!</h3>
+                <p style="color: #94a3b8; margin: 20px 0;">Recibirás un email de confirmación con los detalles de tu pedido.</p>
+                <button class="btn" onclick="closeModal()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('purchaseModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('purchaseModal').style.display = 'none';
+            document.getElementById('formSection').style.display = 'block';
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('purchaseForm').reset();
+        }
+
+        document.getElementById('purchaseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('formSection').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+        });
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('purchaseModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
